@@ -42,7 +42,7 @@ export const loginResource = '/Login';
 
 //const apiPort = '7284';
 //const localApiUri = `http://localhost:${apiPort}/api`;
-const externallApiUri = `https://eventwebapi-mauricio.azurewebsites.net`;
+const externallApiUri = `https://eventpluswebapi-mauricio.azurewebsites.net/api`;
 // const externalApiUri = null;
 
 const api = axios.create({

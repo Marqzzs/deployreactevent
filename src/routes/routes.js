@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"; //v6
 import HomePage from "../pages/HomePage/HomePage";
 import TipoEventos from "../pages/TipoEventosPage/TipoEventosPage";
 import EventosPage from "../pages/EventosPage/EventosPage";
+import EventosAnterioresPage from "../pages/EventosAnterioresPage/EventosAnterioresPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import TestePage from "../pages/TestePage/TestePage";
 import Header from "../components/Header/Header";
@@ -44,6 +45,14 @@ const Rotas = () => {
           element={
             <PrivateRoute redirectTo="/">
               <EventosAlunoPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/eventos-anteriores"
+          element={
+            <PrivateRoute redirectTo="/">
+              <EventosAnterioresPage />
             </PrivateRoute>
           }
         />

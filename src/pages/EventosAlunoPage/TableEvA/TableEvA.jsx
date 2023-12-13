@@ -45,7 +45,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
                     className="tbal-data__icon"
                     // idevento={e.idEvento}
                     src={comentaryIcon}
-                    alt=""
+                    alt="Icone de comentario"
                     onClick={() => {
                       fnShowModal(e.idEvento);
                     }}

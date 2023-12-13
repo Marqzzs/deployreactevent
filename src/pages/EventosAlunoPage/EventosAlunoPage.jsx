@@ -59,16 +59,6 @@ const EventosAlunoPage = () => {
 
         setEventos(eventosMarcados);
 
-        // console.clear();
-
-        // console.log("TODOS OS EVENTOS");
-        // console.log(todosEventos.data);
-
-        // console.log("MEUS EVENTOS");
-        // console.log(meusEventos.data);
-
-        // console.log("EVENTOS MARCADOSSSS:");
-        // console.log(eventosMarcados);
       } catch (error) {
         //colocar o notification
         console.log("Erro na API");

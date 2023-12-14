@@ -9,7 +9,6 @@ import { Link, useParams } from "react-router-dom";
 
 const PreviousEvent = ({ title, description, eventDate, idEvent }) => {
 
-  const {idEvento} = useParams
   return (
     <article className="event-card">
       <h2 className="event-card__title">{title}</h2>
@@ -35,7 +34,7 @@ const PreviousEvent = ({ title, description, eventDate, idEvent }) => {
         }}
         className="event-card__connect-link"
       > */}
-        <Link to={`/eventos-anteriores`}>Visualizar</Link>
+        <Link to={`/eventos-anteriores/${idEvent}`}>Visualizar</Link>
       {/* </a> */}
     </article>
   );

@@ -28,13 +28,13 @@ const PreviousEvent = ({ title, description, eventDate, idEvent }) => {
         {dateFormatDbToView(eventDate)}
       </p>
 
+      <Link className="event-card__connect-link" to={`/eventos-anteriores/${idEvent}`}>Visualizar</Link>
       {/* <a
         onClick={() => {
           visualizar(idEvent);
         }}
         className="event-card__connect-link"
       > */}
-        <Link to={`/eventos-anteriores/${idEvent}`}>Visualizar</Link>
       {/* </a> */}
     </article>
   );

@@ -24,9 +24,19 @@ export const presencesEventResource = '/PresencasEvento';
 export const commentaryEventResource = '/ComentariosEvento';
 
 /**
+ * Rota para listar todos os comentaerios de um evento
+ */
+export const allCommentaryEventResource = '/ComentariosEvento/BuscarTodosDeUmEvento';
+
+/**
  * Rota para o recurso Próximos Eventos
  */
 export const nextEventResource = '/Evento/ListarProximos';
+
+/**
+ * Rota para listar os eventos que ja ocorreram
+ */
+export const previousEventResource = '/Evento/ListarAnteriores';
 /**
  * Rota para o recurso Tipos de Eventos
  */

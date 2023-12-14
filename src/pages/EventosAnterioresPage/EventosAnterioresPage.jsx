@@ -7,13 +7,13 @@ import { useParams } from "react-router-dom";
 
 const EventosAnterioresPage = () => {
 
-  const { idEvento } = useParams();
+  // const { idEvento } = useParams();
 
-  useEffect(() => {
-    alert("Fazer a funcao")
-    alert(`Fazer o get do evento${idEvento}`)
-  });
-  
+  // useEffect(() => {
+  //   alert("Fazer a funcao")
+  //   alert(`Fazer o get do evento${idEvento}`)
+  // });
+
   return (
     <>
       <MainContent>

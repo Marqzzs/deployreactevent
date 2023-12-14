@@ -49,7 +49,7 @@ const Rotas = () => {
           }
         />
         <Route
-          path="/eventos-anteriores:idEvento"
+          path="/eventos-anteriores"
           element={
             <PrivateRoute redirectTo="/">
               <EventosAnterioresPage />

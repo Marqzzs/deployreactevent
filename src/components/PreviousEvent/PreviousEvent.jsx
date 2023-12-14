@@ -35,7 +35,7 @@ const PreviousEvent = ({ title, description, eventDate, idEvent }) => {
         }}
         className="event-card__connect-link"
       > */}
-        <Link to={`/eventos-anteriores/${idEvento}`}>Visualizar</Link>
+        <Link to={`/eventos-anteriores`}>Visualizar</Link>
       {/* </a> */}
     </article>
   );

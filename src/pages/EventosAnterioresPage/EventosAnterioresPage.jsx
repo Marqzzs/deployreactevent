@@ -4,7 +4,7 @@ import Title from "../../components/Title/Title";
 import MainContent from "../../components/MainContent/MainContent";
 import Container from "../../components/Container/Container";
 import { useParams } from "react-router-dom";
-import api, { eventsResource, allCommentaryEventResource } from "../../Services/Service";
+import api, { commentaryEventResource, eventsResource, somenteExibeResource } from "../../Services/Service";
 import { Input } from "../../components/FormComponents/FormComponents";
 import { dateFormatDbToView } from "../../Utils/stringFunctions";
 
@@ -26,17 +26,24 @@ const EventosAnterioresPage = () => {
         setTitulo(dados.nomeEvento);
         setDescricao(dados.descricao);
         setDataEvento(dados.dataEvento);
-        // Obter comentários associados ao evento
-        const promiseComentarios = await api.get(`${allCommentaryEventResource}/${idEvent}`);
-        const dadosComentarios = promiseComentarios.data;
-        console.log(dadosComentarios);
-        setComentarios(dadosComentarios);
       } catch (error) {
         console.log("Erro ao buscar detalhes do evento ou comentários", error);
       }      
     }
     getEventId();
+    getComments()
   }, [idEvent]);
+
+  async function getComments() {
+    try {
+      const promiseComentarios = await api.get(`${somenteExibeResource}/${idEvent}`);
+      const dadosComentarios = promiseComentarios.data;
+      console.log(dadosComentarios);
+      setComentarios(dadosComentarios);
+    } catch (error) {
+      console.log("Deu ruim trazer os c");
+    }
+  }
 
   return (
     <>

@@ -26,7 +26,7 @@ export const commentaryEventResource = '/ComentariosEvento';
 /**
  * Rota para listar todos os comentaerios de um evento
  */
-export const allCommentaryEventResource = '/ComentariosEvento/BuscarTodosDeUmEvento';
+export const somenteExibeResource = '/ComentariosEvento/Show';
 
 /**
  * Rota para o recurso Próximos Eventos

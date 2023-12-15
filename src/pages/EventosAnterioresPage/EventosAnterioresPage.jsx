@@ -4,8 +4,9 @@ import Title from "../../components/Title/Title";
 import MainContent from "../../components/MainContent/MainContent";
 import Container from "../../components/Container/Container";
 import { useParams } from "react-router-dom";
-import api, { eventsResource } from "../../Services/Service";
+import api, { eventsResource, allCommentaryEventResource } from "../../Services/Service";
 import { Input } from "../../components/FormComponents/FormComponents";
+import { dateFormatDbToView } from "../../Utils/stringFunctions";
 
 const EventosAnterioresPage = () => {
   const { idEvent } = useParams();
@@ -13,6 +14,7 @@ const EventosAnterioresPage = () => {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
   const [dataEvento, setDataEvento] = useState("");
+  const [comentarios, setComentarios] = useState([]);
 
   useEffect(() => {
     async function getEventId() {
@@ -24,9 +26,14 @@ const EventosAnterioresPage = () => {
         setTitulo(dados.nomeEvento);
         setDescricao(dados.descricao);
         setDataEvento(dados.dataEvento);
+        // Obter comentários associados ao evento
+        const promiseComentarios = await api.get(`${allCommentaryEventResource}/${idEvent}`);
+        const dadosComentarios = promiseComentarios.data;
+        console.log(dadosComentarios);
+        setComentarios(dadosComentarios);
       } catch (error) {
-        console.log("nao trouxe o evento");
-      }
+        console.log("Erro ao buscar detalhes do evento ou comentários", error);
+      }      
     }
     getEventId();
   }, [idEvent]);
@@ -61,10 +68,28 @@ const EventosAnterioresPage = () => {
                 type="text"
                 id="dataEvento"
                 name="dataEvento"
-                value={dataEvento} // Use o estado para preencher o valor
+                value={dateFormatDbToView(dataEvento)} // Use o estado para preencher o valor
                 // Atualize o estado ao digitar usando manipulationFunction se necessário
                 manipulationFunction={(e) => setDataEvento(e.target.value)}
               />
+
+              {/* Tabela para listar comentários */}
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comentarios.map((comentario) => (
+                    <tr key={comentario.idComentarioEvento}>
+                      <td>{comentario.usuario.nome}</td>
+                      <td>{comentario.descricao}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </Container>
